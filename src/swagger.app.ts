@@ -4,14 +4,16 @@ import { INestApplication} from '@nestjs/common';
 export const initSwagger = (app: INestApplication) => {
     const swaggerConfig = new DocumentBuilder()
       //.addBearerAuth()
-    .setTitle('ECOMMERSE API')
-    .setDescription('Ecommerse Backend ') 
-    .setVersion('1.0')
+    .setTitle('ECOMMERCE API')
+    .setDescription('Api Build Nugget') 
+    .setVersion('1.2')
     .build();
     const document = SwaggerModule.createDocument(app,swaggerConfig);
-    SwaggerModule.setup('api/docs',app, document,{
+    SwaggerModule.setup('/',app, document,{
         swaggerOptions:{
-            filter:true
+            filter:true,
+            tagsSorter:'alpha',
+            operationsSorter: 'alpha',
         }
     });
 };
